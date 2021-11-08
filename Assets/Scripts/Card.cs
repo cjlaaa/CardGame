@@ -17,10 +17,10 @@ public class MonsterCard : Card
     public int HealthPoint;
     public int HealthPointMax;
 
-    public MonsterCard(int id, string cardName, int attack, int heathPoint, int healthPointMax):base (id,cardName)
+    public MonsterCard(int id, string cardName, int attack, int healthPointMax):base (id,cardName)
     {
         this.Attack = attack;
-        this.HealthPoint = heathPoint;
+        this.HealthPoint = healthPointMax;
         this.HealthPointMax = healthPointMax;
     }
 }
