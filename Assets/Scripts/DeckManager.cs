@@ -41,7 +41,7 @@ public class DeckManager : MonoBehaviour
             {
                 GameObject newCard = Instantiate(LibraryCardPrefab, LibraryPanel);
                 newCard.GetComponent<CardCounter>().Counter.text = playerData.PlayerCards[i].ToString();
-                newCard.GetComponent<CardDisplay>().card = cardStore.CardList[i];
+                newCard.GetComponent<CardDisplay>().Card = cardStore.CardList[i];
             }
         }
     }
@@ -54,7 +54,7 @@ public class DeckManager : MonoBehaviour
             {
                 GameObject newCard = Instantiate(DeckCardPrefab, DeckPanel);
                 newCard.GetComponent<CardCounter>().Counter.text = playerData.PlayerDeck[i].ToString();
-                newCard.GetComponent<CardDisplay>().card = cardStore.CardList[i];
+                newCard.GetComponent<CardDisplay>().Card = cardStore.CardList[i];
             }
         }
     }

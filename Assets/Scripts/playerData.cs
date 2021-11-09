@@ -15,8 +15,8 @@ public class PlayerData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // CardStore.LoadCardData();
-        // LoadPlayerData();
+        CardStore.LoadCardData();
+        LoadPlayerData();
     }
 
     // Update is called once per frame

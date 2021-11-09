@@ -284,11 +284,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221b9b061da39ef4d89f555a00154e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 3631191854880172383}
-  attackText: {fileID: 8247323498155104169}
-  healthText: {fileID: 6104966508440835434}
-  effectText: {fileID: 5706426205433820790}
-  backgroundImage: {fileID: 2892803797927044857}
+  NameText: {fileID: 3631191854880172383}
+  AttackText: {fileID: 8247323498155104169}
+  HealthText: {fileID: 6104966508440835434}
+  EffectText: {fileID: 5706426205433820790}
+  BackgroundImage: {fileID: 2892803797927044857}
 --- !u!1 &4816384573340103432
 GameObject:
   m_ObjectHideFlags: 0

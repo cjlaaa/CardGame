@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class CardDisplay : MonoBehaviour
 {
-    public Text nameText;
-    public Text attackText;
-    public Text healthText;
-    public Text effectText;
+    public Text NameText;
+    public Text AttackText;
+    public Text HealthText;
+    public Text EffectText;
 
-    public Image backgroundImage;
+    public Image BackgroundImage;
 
-    public Card card;
+    public Card Card;
     
     // Start is called before the first frame update
     void Start()
@@ -28,22 +28,22 @@ public class CardDisplay : MonoBehaviour
 
     public void ShowCard()
     {
-        nameText.text = card.CardName;
-        if (card is MonsterCard)
+        NameText.text = Card.CardName;
+        if (Card is MonsterCard)
         {
-            var monster = card as MonsterCard;
-            attackText.text = monster.Attack.ToString();
-            healthText.text = monster.HealthPoint.ToString();
+            var monster = Card as MonsterCard;
+            AttackText.text = monster.Attack.ToString();
+            HealthText.text = monster.HealthPoint.ToString();
             
-            effectText.gameObject.SetActive(false);
+            EffectText.gameObject.SetActive(false);
         }
-        else if (card is SpellCard)
+        else if (Card is SpellCard)
         {
-            var spell = card as SpellCard;
-            effectText.text = spell.Effect;
+            var spell = Card as SpellCard;
+            EffectText.text = spell.Effect;
             
-            attackText.gameObject.SetActive(false);
-            healthText.gameObject.SetActive(false);
+            AttackText.gameObject.SetActive(false);
+            HealthText.gameObject.SetActive(false);
         }
     }
 }

@@ -650,7 +650,7 @@ MonoBehaviour:
   CardPrefab: {fileID: 3953753355266415044, guid: 3305d2c9cf25b614297c962c58172d32,
     type: 3}
   CardPool: {fileID: 2109874274}
-  playerData: {fileID: 1951271644}
+  PlayerData: {fileID: 1951271644}
 --- !u!1 &2109874274
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,6 +723,11 @@ PrefabInstance:
       propertyPath: CardStore
       value: 
       objectReference: {fileID: 2055499888}
+    - target: {fileID: 9010018022727190698, guid: 753bfffa77ac40b48ad094c8236b8a76,
+        type: 3}
+      propertyPath: PlayerDataFile
+      value: 
+      objectReference: {fileID: 4900000, guid: 0aad8a7b1c1a8e54f8cb0b01ca63bba3, type: 3}
     - target: {fileID: 9010018022727190699, guid: 753bfffa77ac40b48ad094c8236b8a76,
         type: 3}
       propertyPath: m_RootOrder
