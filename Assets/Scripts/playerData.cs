@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class PlayerData : MonoBehaviour
+public class PlayerData : MonoBehaviour}
 {
     public CardStore CardStore;
     public int PlayerCoins;
     public int[] PlayerCards;
+    public int[] PlayerDeck;
 
     public TextAsset playerDataFile;
     
     // Start is called before the first frame update
     void Start()
     {
-        CardStore.LoadCardData();
-        LoadPlayerData();
+        // CardStore.LoadCardData();
+        // LoadPlayerData();
     }
 
     // Update is called once per frame
@@ -27,7 +28,8 @@ public class PlayerData : MonoBehaviour
     public void LoadPlayerData()
     {
         PlayerCards = new int[CardStore.CardList.Count];
-        string[] dataRow = playerDataFile.text.Split('\n');
+        PlayerDeck = new int[CardStore.CardList.Count];
+        string[] dataRow = PlayerDataFile.text.Split('\n');
         foreach (var row in dataRow)
         {
             string[] rowArray = row.Split(',');
@@ -45,6 +47,12 @@ public class PlayerData : MonoBehaviour
                 int num = int.Parse(rowArray[2]);
                 PlayerCards[id] = num;
             }
+            else if (rowArray[0]=="deck")
+            {
+                int id = int.Parse(rowArray[1]);
+                int num = int.Parse(rowArray[2]);
+                PlayerDeck[id] = num;
+            }
         }    
     }
     
@@ -61,9 +69,15 @@ public class PlayerData : MonoBehaviour
                 datas.Add("card," + i.ToString() + "," + PlayerCards[i].ToString());
             }
         }
+
+        for (int i = 0; i < PlayerDeck.Length; i++)
+        {
+            if (PlayerDeck[i] != 0)
+            { 
+                datas.Add("deck," + i.ToString() + "," + PlayerDeck[i].ToString());
+            }
+        }
         
         File.WriteAllLines(path, datas);
-        
-        //保存卡组
     }
 }
