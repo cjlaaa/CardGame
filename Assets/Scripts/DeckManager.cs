@@ -35,26 +35,26 @@ public class DeckManager : MonoBehaviour
     
     public void UpdateLibrary()
     {
-        for (int i = 0; i < PlayerData.PlayerCards.Length; i++)
+        for (int i = 0; i < playerData.PlayerCards.Length; i++)
         {
-            if (PlayerData.PlayerCards[i]>0)
+            if (playerData.PlayerCards[i]>0)
             {
                 GameObject newCard = Instantiate(LibraryCardPrefab, LibraryPanel);
-                newCard.GetComponent<CardCounter>().Counter.text = PlayerData.PlayerCards[i].ToString();
-                newCard.GetComponent<CardDisplay>().card = CardStore.CardList[i];
+                newCard.GetComponent<CardCounter>().Counter.text = playerData.PlayerCards[i].ToString();
+                newCard.GetComponent<CardDisplay>().card = cardStore.CardList[i];
             }
         }
     }
     
     public void UpdateDeck()
     {
-        for (int i = 0; i < PlayerData.PlayerDeck.Length; i++)
+        for (int i = 0; i < playerData.PlayerDeck.Length; i++)
         {
-            if (PlayerData.PlayerDeck[i]>0)
+            if (playerData.PlayerDeck[i]>0)
             {
                 GameObject newCard = Instantiate(DeckCardPrefab, DeckPanel);
-                newCard.GetComponent<CardCounter>().Counter.text = PlayerData.PlayerDeck[i].ToString();
-                newCard.GetComponent<CardDisplay>().card = CardStore.CardList[i];
+                newCard.GetComponent<CardCounter>().Counter.text = playerData.PlayerDeck[i].ToString();
+                newCard.GetComponent<CardDisplay>().card = cardStore.CardList[i];
             }
         }
     }

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class PlayerData : MonoBehaviour}
+public class PlayerData : MonoBehaviour
 {
     public CardStore CardStore;
     public int PlayerCoins;
     public int[] PlayerCards;
     public int[] PlayerDeck;
 
-    public TextAsset playerDataFile;
+    public TextAsset PlayerDataFile;
     
     // Start is called before the first frame update
     void Start()

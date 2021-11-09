@@ -774,6 +774,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DataManager
       objectReference: {fileID: 0}
+    - target: {fileID: 204730439936945294, guid: 5b3f08f3f79988b4eaaa0d319fc1ad66,
+        type: 3}
+      propertyPath: PlayerDataFile
+      value: 
+      objectReference: {fileID: 4900000, guid: 0aad8a7b1c1a8e54f8cb0b01ca63bba3, type: 3}
     - target: {fileID: 204730439936945295, guid: 5b3f08f3f79988b4eaaa0d319fc1ad66,
         type: 3}
       propertyPath: m_RootOrder
