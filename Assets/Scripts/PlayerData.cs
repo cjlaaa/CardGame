@@ -26,7 +26,7 @@ public class PlayerData : MonoBehaviour
 
     public void LoadPlayerData()
     {
-        PlayerCards = new int[CardStore.cardList.Count];
+        PlayerCards = new int[CardStore.CardList.Count];
         string[] dataRow = playerDataFile.text.Split('\n');
         foreach (var row in dataRow)
         {

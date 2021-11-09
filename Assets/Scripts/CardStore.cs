@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CardStore : MonoBehaviour
 {
-    public TextAsset cardDataFile;
-    public List<Card> cardList = new List<Card>();
+    public TextAsset CardDataFile;
+    public List<Card> CardList = new List<Card>();
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class CardStore : MonoBehaviour
 
     public void LoadCardData()
     {
-        string[] dataRow = cardDataFile.text.Split('\n');
+        string[] dataRow = CardDataFile.text.Split('\n');
         foreach (var row in dataRow)
         {
             string[] rowArray = row.Split(',');
@@ -37,7 +37,7 @@ public class CardStore : MonoBehaviour
                 int attack = int.Parse(rowArray[3]);
                 int health = int.Parse(rowArray[4]);
                 MonsterCard monsterCard = new MonsterCard(id, name, attack, health);
-                cardList.Add(monsterCard);
+                CardList.Add(monsterCard);
             }
             else if (rowArray[0]=="spell")
             {
@@ -45,14 +45,14 @@ public class CardStore : MonoBehaviour
                 string name = rowArray[2];
                 string effect = rowArray[3];
                 SpellCard spellCard = new SpellCard(id, name, effect);
-                cardList.Add(spellCard);
+                CardList.Add(spellCard);
             }
         }
     }
 
     public void TestLoad()
     {
-        foreach (var item in cardList)
+        foreach (var item in CardList)
         {
             Debug.Log("卡牌:" + item.Id.ToString() + item.CardName.ToString());
         }
@@ -60,7 +60,7 @@ public class CardStore : MonoBehaviour
     
     public Card RandomCard()
     {
-        Card card = cardList[Random.Range(0, cardList.Count)];
+        Card card = CardList[Random.Range(0, CardList.Count)];
         return card;
     }
 }
