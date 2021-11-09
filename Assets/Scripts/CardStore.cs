@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CardStore : MonoBehaviour
 {
-    public TextAsset cardData;
+    public TextAsset cardDataFile;
     public List<Card> cardList = new List<Card>();
 
     // Start is called before the first frame update
     void Start()
     {
-        LoadCardData();
-        TestLoad();
+        // LoadCardData();
+        // TestLoad();
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class CardStore : MonoBehaviour
 
     public void LoadCardData()
     {
-        string[] dataRow = cardData.text.Split('\n');
+        string[] dataRow = cardDataFile.text.Split('\n');
         foreach (var row in dataRow)
         {
             string[] rowArray = row.Split(',');
