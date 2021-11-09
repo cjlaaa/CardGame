@@ -366,11 +366,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221b9b061da39ef4d89f555a00154e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 4836440849065911817}
-  attackText: {fileID: 220264706238830847}
-  healthText: {fileID: 2721258441739491900}
-  effectText: {fileID: 4488862827715721504}
-  backgroundImage: {fileID: 6440047587960039855}
+  NameText: {fileID: 4836440849065911817}
+  AttackText: {fileID: 220264706238830847}
+  HealthText: {fileID: 2721258441739491900}
+  EffectText: {fileID: 4488862827715721504}
+  BackgroundImage: {fileID: 6440047587960039855}
 --- !u!114 &8523697202905396633
 MonoBehaviour:
   m_ObjectHideFlags: 0
