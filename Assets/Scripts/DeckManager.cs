@@ -14,6 +14,9 @@ public class DeckManager : MonoBehaviour
     
     private PlayerData playerData;
     private CardStore cardStore;
+
+    private Dictionary<int, GameObject> libraryDic = new Dictionary<int, GameObject>();
+    private Dictionary<int, GameObject> deckDic = new Dictionary<int, GameObject>();
     
     // Start is called before the first frame update
     void Start()
@@ -39,9 +42,7 @@ public class DeckManager : MonoBehaviour
         {
             if (playerData.PlayerCards[i]>0)
             {
-                GameObject newCard = Instantiate(LibraryCardPrefab, LibraryPanel);
-                newCard.GetComponent<CardCounter>().Counter.text = playerData.PlayerCards[i].ToString();
-                newCard.GetComponent<CardDisplay>().Card = cardStore.CardList[i];
+                CreateCard(i, CardState.Library);
             }
         }
     }
@@ -52,10 +53,73 @@ public class DeckManager : MonoBehaviour
         {
             if (playerData.PlayerDeck[i]>0)
             {
-                GameObject newCard = Instantiate(DeckCardPrefab, DeckPanel);
-                newCard.GetComponent<CardCounter>().Counter.text = playerData.PlayerDeck[i].ToString();
-                newCard.GetComponent<CardDisplay>().Card = cardStore.CardList[i];
+                CreateCard(i, CardState.Deck);
             }
         }
+    }
+    
+    public void UpdateCard(CardState state, int id)
+    {
+        if (state == CardState.Deck)
+        {
+            playerData.PlayerDeck[id]--;
+            playerData.PlayerCards[id]++;
+
+            if (deckDic[id].GetComponent<CardCounter>().SetCounter(-1) == false)
+            {
+                deckDic.Remove(id);
+            }
+
+            if (libraryDic.ContainsKey(id))
+            {
+                libraryDic[id].GetComponent<CardCounter>().SetCounter(1);
+            }
+            else
+            {
+                CreateCard(id, CardState.Library);
+            }
+        }
+        else if(state == CardState.Library)
+        {
+            playerData.PlayerDeck[id]++;
+            playerData.PlayerCards[id]--;
+
+            if (libraryDic[id].GetComponent<CardCounter>().SetCounter(-1) == false)
+            {
+                libraryDic.Remove(id);
+            }
+            if (deckDic.ContainsKey(id))
+            {
+                deckDic[id].GetComponent<CardCounter>().SetCounter(1);
+            }
+            else
+            {
+                CreateCard(id, CardState.Deck);
+            }
+        }
+    }
+
+    public void CreateCard(int id, CardState cardState)
+    {
+        Transform targetPanel;
+        GameObject targetPrefab;
+        var refData = playerData.PlayerCards;
+        var targetDic = libraryDic;
+        if (cardState == CardState.Library)
+        {
+            targetPanel = LibraryPanel;
+            targetPrefab = LibraryCardPrefab;
+        }
+        else// if (cardState == CardState.Deck)
+        {
+            targetPanel = DeckPanel;
+            targetPrefab = DeckCardPrefab;
+            refData = playerData.PlayerDeck;
+            targetDic = deckDic;
+        }
+        GameObject newCard = Instantiate(targetPrefab, targetPanel);
+        newCard.GetComponent<CardCounter>().SetCounter(refData[id]);
+        newCard.GetComponent<CardDisplay>().Card = cardStore.CardList[id];
+        targetDic.Add(id, newCard);
     }
 }
